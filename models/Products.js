@@ -12,9 +12,31 @@ class Products {
     });
   }
 
+  // createCard(data) {
+  // const img = document.createElement("img");
+  // img.src = data.image;
+  // img.alt = data.alt;
+  //cardEle.appendChild(img)
+
+  //const info =document.createElement('div')
+  //const productName=document.createElement('h3')
+  //const control=document.createElement('div')
+  //const price=document.createElement('span')
+  //const button=document.createElement('button')
+
+  //productName.innerText=data.name
+  //price.innerText=data.price
+  //button.innerText="+"
+
+  //control.append(price,button)
+  //info.append(productName,control)
+  //cardEle.appendChild(info)
+
+  //this.parent.appendChild(cardEle)
+  //}
+
   createCard(data) {
     const cardEle = document.createElement("div");
-
     const imgEle = this.productImg(data);
     const infoEle = this.productInfo(data);
 
@@ -27,11 +49,7 @@ class Products {
 
   productImg(data) {
     const { image, alt } = data;
-    // const img = document.createElement("img");
-    // img.src = data.image;
-    // img.alt = data.alt;
     const imgJSX = `<img alt="${alt}" src="${image}"/>`; //**
-
     return imgJSX;
   }
   productInfo(data) {
@@ -47,7 +65,7 @@ class Products {
     return infoJSX;
   }
 
-  handleEvent() {
+  handleEvent(event) {
     const element = event.target;
     console.log(element.tagName);
     if (element.tagName === "BUTTON") {
@@ -57,8 +75,9 @@ class Products {
 
   addToCard(id) {
     const product = this.products.find((i) => i.id === +id);
-    console.log(product);
+    // console.log(product);
     this.cart.products.push(product);
+    // console.log(this.cart);
     this.cart.showProducts();
   }
 }

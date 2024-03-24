@@ -36,21 +36,21 @@ main {
 }
 
 #products > div {
-  width: 320px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: rgba(100, 100, 111, 0.2) opx 7px 29px 0px;
-  border-radius: 30px;
-  padding: 10px;
-  margin-bottom: 40px;
+  width: 320px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px !important;
+  border-radius: 30px !important;
+  padding: 10px !important;
+  margin-bottom: 40px !important;
 }
 
 #products img {
   width: 300px;
   border-radius: 25px;
 }
-#products-info {
+#product-info {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -61,27 +61,23 @@ main {
   padding: 25px;
   margin-top: 30px;
 }
-#products-info h3 {
+#product-info h3 {
   color: var(--color-Primary);
   font-size: 1.3rem;
 }
 
-#products-info div {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+#product-info div {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
 }
 
-#products-info span {
-  font-size: 1.1rem;
-  color: grey;
+#product-info span {
+  font-size: 1.1rem !important;
+  color: grey !important;
 }
 
-#products-info span {
-  font-size: 1.1rem;
-  color: grey;
-}
-#products-info button {
+#product-info button {
   background-color: #fff;
   border: none;
   width: 40px;
@@ -94,7 +90,7 @@ main {
   box-shadow: rgba(149, 157, 165, 0.2) 0px 10px 20px;
 }
 
-#products-info button:hover {
+#product-info button:hover {
   background-color: var(--color-Primary);
   color: #fff;
   border-radius: 40%;
@@ -152,7 +148,7 @@ main {
   color: grey;
 }
 
-#cart-control div {
+#cart_control div {
   width: 90px;
   display: flex;
   justify-content: space-between;
@@ -160,7 +156,7 @@ main {
   margin-bottom: 10px;
 }
 
-#cart-control div button {
+#cart_control div button {
   background: var(--color-secondary);
   border: none;
   width: 30px;
@@ -178,7 +174,7 @@ main {
   border-radius: 40%;
 }
 
-#cart-control > button {
+#cart_control > button {
   background-color: #fff;
   border: 1px solid var(--color-error);
   border-radius: 5px;
@@ -190,7 +186,7 @@ main {
   transition: 0.2s all ease-in;
 }
 
-#cart-control > button:hover {
+#cart_control > button:hover {
   background-color: var(--color-error);
   color: #fff;
 }
@@ -204,4 +200,8 @@ main {
 
 #total-price span {
   color: var(--color-Primary);
+}
+
+#product-info > div > button:nth-child(3) {
+  display: none;
 }

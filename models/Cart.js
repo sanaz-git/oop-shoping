@@ -4,6 +4,7 @@ class Cart {
     this.price = price;
     this.products = [];
     this.toShow = [];
+    this.parent.addEventListener("click", this);
   }
 
   showProducts() {
@@ -15,7 +16,7 @@ class Cart {
     });
   }
 
-  createCard(data, qyt) {
+  createCard(data, qty) {
     console.log(data);
     const cardEle = document.createElement("div");
 
@@ -32,8 +33,7 @@ class Cart {
 
   productImg(data) {
     const { image, alt } = data;
-    const imgJSX = `<img alt=${alt} src=${image}/>`;
-
+    const imgJSX = `<img alt="${alt}" src="${image}"/>`; //**
     return imgJSX;
   }
   productInfo(data) {
@@ -51,7 +51,7 @@ class Cart {
     const { id } = data;
 
     const controlJSX = `
-    <div id="cart_control"">
+    <div id="cart_control">
     <div>
     <button data-id=${id}>-</button>
     <span>${qty}</span>
@@ -62,6 +62,44 @@ class Cart {
     `;
 
     return controlJSX;
+  }
+
+  handleEvent(event) {
+    const tagName = event.target.tagName;
+    const id = event.target.dataset.id;
+    const type = event.target.innerText;
+
+    if (tagName !== "BUTTON") return;
+    // console.log("button");
+
+    switch (type) {
+      case "+":
+        this.increase(id);
+        break;
+      case "-":
+        this.decrease(id);
+
+        break;
+      case "Remove":
+        this.remove(id);
+        break;
+    }
+  }
+
+  increase(id) {
+    const product = this.products.find((p) => p.id === +id);
+    this.products.push(product);
+    this.showProducts();
+  }
+  decrease(id) {
+    const index = this.products.findIndex((p) => p.id === +id);
+    this.products.splice(index, 1);
+    this.showProducts();
+  }
+  remove(id) {
+    const newProducts = this.products.filter((p) => p.id !== +id);
+    this.products = newProducts;
+    this.showProducts();
   }
 }
 
